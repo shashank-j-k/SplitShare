@@ -14,8 +14,18 @@ CExpense ::CExpense()
     pFirst = NULL;
 }
 
-CExpense ::~CExpense()
+CExpense::~CExpense()
 {
+    CSplitExpense *pTemp = pFirst;
+    CSplitExpense *pDelete = NULL;
+
+    while (pTemp != NULL)
+    {
+        pDelete = pTemp;
+        pTemp = pTemp->pNext;
+        delete pDelete;
+    }
+
     pFirst = NULL;
 }
 
